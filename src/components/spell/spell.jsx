@@ -40,6 +40,20 @@ export default function Spell({ spell_name }) {
                     <p className='level'>Level {spell.level}</p>
                 </div>
             </div>
+            <div className='content'>
+                <p>Casting Time: {spell.casting_time}</p>
+                <p>Range: {spell.range}</p>
+                <p>Components Time: {spell.components} {spell.material}</p>
+                <p>Duration Time: {spell.duration}</p>
+                <br />
+                <p>{spell.desc}</p>
+                <br />
+                <p>{spell.higher_level}</p>
+                <br />
+                <p>Classes: {spell.classes.map(c => {
+                    return c.name
+                })}</p>
+            </div>
         </div>
     )
 }
