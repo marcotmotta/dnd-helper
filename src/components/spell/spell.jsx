@@ -1,10 +1,10 @@
 import React from 'react'
-
 import { useState, useEffect } from 'react'
 
-//styles
-import "./spell.scss"
+import SchoolIcon from '../schoolIcons/SchoolIcon'
 
+//styles
+import "./Spell.scss"
 import { CircularProgress } from '@mui/material';
 
 export default function Spell({ spell_name }) {
@@ -21,6 +21,7 @@ export default function Spell({ spell_name }) {
       getSpell()
     }, [])
 
+    //in case theres no spell yet
     if(!Object.entries(spell).length) {
         return (
             <div className="spell loading"><CircularProgress /></div>
@@ -28,6 +29,17 @@ export default function Spell({ spell_name }) {
     }
 
     return (
-        <div className="spell">{spell.name}</div>
+        <div className="spell">
+            <div className='heading'>
+                <div className='school'>
+                    <SchoolIcon school_name={spell.school.name}/>
+                    <span>{spell.school.name}</span>
+                </div>
+                <div className='title'>
+                    <h1 className='name'>{spell.name}</h1>
+                    <p className='level'>Level {spell.level}</p>
+                </div>
+            </div>
+        </div>
     )
 }
