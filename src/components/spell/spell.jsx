@@ -1,18 +1,24 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 
+import { useParams } from "react-router-dom";
+
 import SchoolIcon from '../schoolIcons/SchoolIcon'
 
 //styles
 import "./Spell.scss"
 import { CircularProgress } from '@mui/material';
 
-export default function Spell({ spell_name }) {
+export default function Spell() {
+
+    //url params
+    const params = useParams()
 
     const [spell, setSpell] = useState({})
 
+    //get request to dnd api
     const getSpell = () => {
-        fetch(`https://www.dnd5eapi.co/api/spells/${spell_name}`)
+        fetch(`https://www.dnd5eapi.co/api/spells/${params.spell_name}`)
             .then(response => response.json())
             .then(response => setSpell(response))
     }
@@ -21,10 +27,19 @@ export default function Spell({ spell_name }) {
       getSpell()
     }, [])
 
+    console.log(spell)
+
     //in case theres no spell yet
     if(!Object.entries(spell).length) {
         return (
             <div className="spell loading"><CircularProgress /></div>
+        )
+    }
+
+    if(spell.error) {
+
+        return (
+            <div className="spell loading">Spell not found... =(</div>
         )
     }
 
@@ -51,7 +66,7 @@ export default function Spell({ spell_name }) {
                 <p>{spell.higher_level}</p>
                 <br />
                 <p>Classes: {spell.classes.map(c => {
-                    return c.name
+                    return (c.name + ' ')
                 })}</p>
             </div>
         </div>
