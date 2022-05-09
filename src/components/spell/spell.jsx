@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react'
 
 import { useParams } from "react-router-dom";
 
+import Loading from '../loading/Loading';
 import SchoolIcon from '../schoolIcons/SchoolIcon'
 
 //styles
 import "./Spell.scss"
-import { CircularProgress } from '@mui/material';
 
 export default function Spell() {
 
@@ -17,22 +17,20 @@ export default function Spell() {
     const [spell, setSpell] = useState({})
 
     //get request to dnd api
-    const getSpell = () => {
-        fetch(`https://www.dnd5eapi.co/api/spells/${params.spell_name}`)
+    const getSpellByName = (spell_name) => {
+        fetch(`https://www.dnd5eapi.co/api/spells/${spell_name}`)
             .then(response => response.json())
             .then(response => setSpell(response))
     }
 
     useEffect(() => {
-      getSpell()
+        getSpellByName(params.spell_name)
     }, [])
-
-    console.log(spell)
 
     //in case theres no spell yet
     if(!Object.entries(spell).length) {
         return (
-            <div className="spell loading"><CircularProgress /></div>
+            <Loading />
         )
     }
 
