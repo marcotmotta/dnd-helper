@@ -56,8 +56,8 @@ export default function Spell() {
             <div className='content'>
                 <p>Casting Time: {spell.casting_time}</p>
                 <p>Range: {spell.range}</p>
-                <p>Components Time: {spell.components} {spell.material}</p>
-                <p>Duration Time: {spell.duration}</p>
+                <p>Components: {spell.components} {spell.material}</p>
+                <p>Duration: {spell.duration}</p>
                 <br />
                 <p>{spell.desc}</p>
                 <br />

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import Loading from '../loading/Loading';
 import SchoolIcon from '../schoolIcons/SchoolIcon'
@@ -29,7 +29,7 @@ export default function School() {
 
     console.log(spells)
 
-    //in case theres no spell yet
+    //in case theres no school yet
     if(!Object.entries(spells).length) {
         return (
             <Loading />
@@ -47,7 +47,9 @@ export default function School() {
         <div className='school'>
             <h1>{params.school_name}</h1>
             {spells.map(spell => {
-                return (<p key={spell.index}>{spell.name}</p>)
+                return (
+                    <p key={spell.index}><Link to={`/spell/${spell.index}`}>{spell.name}</Link></p>
+                )
             })}
         </div>
     )
