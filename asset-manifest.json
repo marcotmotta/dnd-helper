@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/dnd-helper/static/css/main.6516c857.css",
+    "main.js": "/dnd-helper/static/js/main.d17414b8.js",
+    "static/media/divination.svg": "/dnd-helper/static/media/divination.86621133a0ff786755e1b652e6087fc1.svg",
+    "static/media/enchantment.svg": "/dnd-helper/static/media/enchantment.c3c79fb498429abe4f038ec0060151d0.svg",
+    "static/media/illusion.svg": "/dnd-helper/static/media/illusion.c786c38b16caa6b3645e7be63dece8c8.svg",
+    "static/media/conjuration.svg": "/dnd-helper/static/media/conjuration.b41820d9dfa1bd2db35c00cbd23ddb24.svg",
+    "static/media/necromancy.svg": "/dnd-helper/static/media/necromancy.4829f176941c9b99814f0eedc0d6a703.svg",
+    "static/media/evocation.svg": "/dnd-helper/static/media/evocation.f4f1107db0de431147b112c7a6f4ef42.svg",
+    "static/media/transmutation.svg": "/dnd-helper/static/media/transmutation.0854464fde59021502b1b6a1cae20f19.svg",
+    "index.html": "/dnd-helper/index.html",
+    "static/media/abjuration.svg": "/dnd-helper/static/media/abjuration.acf18bfc7b62851f1ec0a406215b4e57.svg",
+    "main.6516c857.css.map": "/dnd-helper/static/css/main.6516c857.css.map",
+    "main.d17414b8.js.map": "/dnd-helper/static/js/main.d17414b8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6516c857.css",
+    "static/js/main.d17414b8.js"
+  ]
+}
