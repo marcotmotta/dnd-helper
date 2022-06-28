@@ -1,0 +1,14 @@
+.spell-search {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+
+    .spell-input {
+        width: 500px;
+        height: 40px;
+        border-radius: 5px;
+    }
+}
