@@ -25,7 +25,7 @@ export default function School() {
 
     useEffect(() => {
         getSpellsBySchool(params.school_name)
-    }, [])
+    }, [params.school_name])
 
     console.log(spells)
 
