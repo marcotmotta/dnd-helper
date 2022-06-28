@@ -10,4 +10,8 @@ p {
 .App {
     min-height: 100vh;
     display: flex;
+
+    .main-content {
+        width: 100%;
+    }
 }
