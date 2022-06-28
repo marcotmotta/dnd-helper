@@ -14,7 +14,7 @@ import SpellSearch from './components/spellSearch/SpellSearch';
 function App() {
   return (
     <div className="App">
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <Sidebar />
           <div class="main-content">
             <Routes>
