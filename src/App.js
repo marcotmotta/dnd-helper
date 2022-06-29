@@ -1,3 +1,5 @@
+//styles
+import './globals.scss';
 import './App.scss';
 
 import {
@@ -16,7 +18,7 @@ function App() {
     <div className="App">
         <Router basename={process.env.PUBLIC_URL}>
           <Sidebar />
-          <div class="main-content">
+          <div className="main-content">
             <Routes>
               <Route path="/" element={<div>Home</div>}/>
               <Route path="/school/:school_name" element={<School />}/>

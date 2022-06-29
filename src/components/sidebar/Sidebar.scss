@@ -1,7 +1,5 @@
-@import "../../App";
-
 .sidebar {
-    background-color: $dark-gray;
+    background-color: var(--dark-gray);
     width: 200px;
     min-width: 200px;
     color: white;

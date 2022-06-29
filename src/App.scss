@@ -1,5 +1,3 @@
-$dark-gray: #222;
-
 h1,
 h2,
 h3,
@@ -12,7 +10,7 @@ p {
 .App {
     min-height: 100vh;
     display: flex;
-    color: $dark-gray;
+    color: var(--dark-gray);
 
     .main-content {
         width: 100%;
