@@ -10,7 +10,7 @@ import './Sidebar.scss';
 export default function Sidebar() {
   return (
     <div className='sidebar'>
-      <h1>DND HELPER</h1>
+      <Link to="/"><h1>DND HELPER</h1></Link>
       <br />
       <div className="search">
         <Link to="/spell/search" class="link"><h3>Search</h3><Search /></Link>
