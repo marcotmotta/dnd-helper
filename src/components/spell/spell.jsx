@@ -54,17 +54,17 @@ export default function Spell() {
                 </div>
             </div>
             <div className='content'>
-                <p>Casting Time: {spell.casting_time}</p>
-                <p>Range: {spell.range}</p>
-                <p>Components: {spell.components} {spell.material}</p>
-                <p>Duration: {spell.duration}</p>
+                <p><b>Casting Time:</b> {spell.casting_time}</p>
+                <p><b>Range:</b> {spell.range}</p>
+                <p><b>Components:</b> {spell.components} {spell.material}</p>
+                <p><b>Duration:</b> {spell.duration}</p>
                 <br />
                 <p>{spell.desc}</p>
                 <br />
                 <p>{spell.higher_level}</p>
                 <br />
-                <p>Classes: {spell.classes.map(c => {
-                    return (c.name + ' ')
+                <p><b>Classes:</b>{spell.classes.map(c => {
+                    return (' ' + c.name)
                 })}</p>
             </div>
         </div>

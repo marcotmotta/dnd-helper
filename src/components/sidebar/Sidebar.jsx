@@ -2,14 +2,20 @@ import React from 'react'
 
 import { Link } from 'react-router-dom';
 
+import { Search } from '@mui/icons-material';
+
 //styles
 import './Sidebar.scss';
 
 export default function Sidebar() {
   return (
     <div className='sidebar'>
-      <h1>Sidebar</h1>
-      <Link to="/spell/search"><h3>Search</h3></Link>
+      <h1>DND HELPER</h1>
+      <br />
+      <div className="search">
+        <Link to="/spell/search" class="link"><h3>Search</h3><Search /></Link>
+      </div>
+      <br />
       <h3>Spell Schools</h3>
       <Link to="/school/abjuration"><p>Abjuration</p></Link>
       <Link to="/school/conjuration"><p>Conjuration</p></Link>
