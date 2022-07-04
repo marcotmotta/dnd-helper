@@ -6,6 +6,8 @@ import { useParams, Link } from "react-router-dom";
 import Loading from '../loading/Loading';
 import SchoolIcon from '../schoolIcons/SchoolIcon'
 
+import { toFirstUpperCase } from '../../utils/toFirstUpperCase'; 
+
 //styles
 import "./School.scss"
 
@@ -47,7 +49,7 @@ export default function School() {
         <div className='school-component'>
             <div className='school-symbol'>
                 <SchoolIcon school_name={params.school_name}/>
-                <span>{params.school_name.charAt(0).toUpperCase() + params.school_name.slice(1)}</span>
+                <span>{toFirstUpperCase(params.school_name)}</span>
             </div>
             <div className='list'>
                 {spells.map(spell => {
