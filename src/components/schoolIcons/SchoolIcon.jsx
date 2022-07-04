@@ -15,30 +15,31 @@ import "./SchoolIcon.scss"
 export default function SchoolIcon({ school_name }) {
 
   let componentToRender
+  school_name = school_name.toLowerCase();
 
   switch (school_name) {
-    case 'Abjuration':
+    case 'abjuration':
       componentToRender = <Abjuration />
       break
-    case 'Conjuration':
+    case 'conjuration':
       componentToRender = <Conjuration />
       break
-    case 'Divination':
+    case 'divination':
       componentToRender = <Divination />
       break
-    case 'Enchantment':
+    case 'enchantment':
       componentToRender = <Enchantment />
       break
-    case 'Evocation':
+    case 'evocation':
       componentToRender = <Evocation />
       break
-    case 'Illusion':
+    case 'illusion':
       componentToRender = <Illusion />
       break
-    case 'Necromancy':
+    case 'necromancy':
       componentToRender = <Necromancy />
       break
-    case 'Transmutation':
+    case 'transmutation':
       componentToRender = <Transmutation />
       break
   }

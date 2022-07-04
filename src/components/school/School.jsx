@@ -39,18 +39,23 @@ export default function School() {
     if(spells.error) {
 
         return (
-            <div className="school loading">School not found... =(</div>
+            <div className="school-component loading">School not found... =(</div>
         )
     }
 
     return (
-        <div className='school'>
-            <h1>{params.school_name}</h1>
-            {spells.map(spell => {
-                return (
-                    <p key={spell.index}><Link to={`/spell/${spell.index}`}>{spell.name}</Link></p>
-                )
-            })}
+        <div className='school-component'>
+            <div className='school-symbol'>
+                <SchoolIcon school_name={params.school_name}/>
+                <span>{params.school_name.charAt(0).toUpperCase() + params.school_name.slice(1)}</span>
+            </div>
+            <div className='list'>
+                {spells.map(spell => {
+                    return (
+                        <Link to={`/spell/${spell.index}`} className="list-item"><p key={spell.index}>{spell.name}</p></Link>
+                    )
+                })}
+            </div>
         </div>
     )
 }
