@@ -22,11 +22,15 @@
                 border: 2px solid var(--dark-gray);
                 
                 &.name-input {
-                    width: 500px;
+                    width: 300px;
                 }
     
                 &.level-input {
                     width: 60px;
+                }
+
+                &.school-input {
+                    width: 200px;
                 }
             }
         }

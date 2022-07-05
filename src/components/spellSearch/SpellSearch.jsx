@@ -11,6 +11,7 @@ export default function SpellSearch() {
 
     const [spellName, setSpellName] = useState(null)
     const [spellLevel, setSpellLevel] = useState(null)
+    const [spellSchool, setSpellSchool] = useState(null)
 
     const handleChangeName = (event) => {
         if (event.target.value.length < 3) {
@@ -21,16 +22,24 @@ export default function SpellSearch() {
     }
 
     const handleChangeLevel = (event) => {
-        if (event.target.value.length < 0) {
+        if (event.target.value < 0) {
             setSpellLevel(null)
         } else {
             setSpellLevel(event.target.value)
         }
     }
 
+    const handleChangeSchool = (event) => {
+        if (event.target.value < 0) {
+            setSpellSchool(null)
+        } else {
+            setSpellSchool(event.target.value)
+        }
+    }
+
     useEffect(() => {
         getSpells()
-    }, [spellName, spellLevel])
+    }, [spellName, spellLevel, spellSchool])
 
     const getSpells = () => {
         let baseurl = 'https://www.dnd5eapi.co/api/spells/?'
@@ -43,6 +52,12 @@ export default function SpellSearch() {
         if (spellLevel) {
             url = url + '&level=' + spellLevel
         }
+
+        if (spellSchool) {
+            url = url + '&school=' + spellSchool
+        }
+
+        console.log(url)
 
         if (baseurl === url) {
             setSpells([])
@@ -63,7 +78,7 @@ export default function SpellSearch() {
                 </div>
                 <div className='filter-container'>
                     <span>Level</span>
-                    <select name="level"  className="filter level-input" onChange={handleChangeLevel}>
+                    <select name="level" className="filter level-input" onChange={handleChangeLevel}>
                         <option value="-1">All</option>
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -75,6 +90,20 @@ export default function SpellSearch() {
                         <option value="7">7</option>
                         <option value="8">8</option>
                         <option value="9">9</option>
+                    </select>
+                </div>
+                <div className='filter-container'>
+                    <span>School</span>
+                    <select name="school" className="filter school-input" onChange={handleChangeSchool}>
+                        <option value="-1">All</option>
+                        <option value="abjuration">Abjuration</option>
+                        <option value="conjuration">Conjuration</option>
+                        <option value="divination">Divination</option>
+                        <option value="enchantment">Enchantment</option>
+                        <option value="evocation">Evocation</option>
+                        <option value="illusion">Illusion</option>
+                        <option value="necromancy">Necromancy</option>
+                        <option value="transmutation">Transmutation</option>
                     </select>
                 </div>
             </div>
