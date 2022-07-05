@@ -4,12 +4,49 @@
     gap: 30px;
     height: 100%;
     align-items: center;
-    justify-content: center;
+    padding: 20px;
 
-    .spell-input {
-        width: 500px;
-        height: 40px;
-        border-radius: 5px;
-        padding: 10px;
+    .filters {
+        display: flex;
+        gap: 30px;
+
+        .filter-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            .filter {
+                height: 40px;
+                border-radius: 5px;
+                padding: 10px;
+                border: 2px solid var(--dark-gray);
+                
+                &.name-input {
+                    width: 500px;
+                }
+    
+                &.level-input {
+                    width: 60px;
+                }
+            }
+        }
+    }
+
+    .list {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+
+        .list-item {
+            border: 1px solid var(--dark-gray);
+            border-radius: 5px;
+            padding: 20px;
+            color: inherit;
+            text-decoration: none;
+
+            &:hover {
+                background-color: #eeeeee;
+            }
+        }
     }
 }

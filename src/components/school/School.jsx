@@ -29,8 +29,6 @@ export default function School() {
         getSpellsBySchool(params.school_name)
     }, [params.school_name])
 
-    console.log(spells)
-
     //in case theres no school yet
     if(!Object.entries(spells).length) {
         return (
@@ -54,7 +52,7 @@ export default function School() {
             <div className='list'>
                 {spells.map(spell => {
                     return (
-                        <Link to={`/spell/${spell.index}`} className="list-item"><p key={spell.index}>{spell.name}</p></Link>
+                        <Link to={`/spell/${spell.index}`} className="list-item" key={spell.index}><p>{spell.name}</p></Link>
                     )
                 })}
             </div>

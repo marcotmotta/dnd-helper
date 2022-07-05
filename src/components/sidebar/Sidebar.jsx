@@ -13,7 +13,7 @@ export default function Sidebar() {
       <Link to="/"><h1>DND HELPER</h1></Link>
       <br />
       <div className="search">
-        <Link to="/spell/search" class="link"><h3>Search</h3><Search /></Link>
+        <Link to="/spell/search" className="link"><h3>Search</h3><Search /></Link>
       </div>
       <br />
       <h3>Spell Schools</h3>
