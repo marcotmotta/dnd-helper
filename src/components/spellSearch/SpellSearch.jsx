@@ -14,11 +14,13 @@ export default function SpellSearch() {
     const [spellSchool, setSpellSchool] = useState(null)
 
     const handleChangeName = (event) => {
-        if (event.target.value.length < 3) {
+        /* if (event.target.value.length < 3) {
             setSpellName(null)
         } else {
             setSpellName(event.target.value)
-        }
+        } */
+
+        setSpellName(event.target.value)
     }
 
     const handleChangeLevel = (event) => {
@@ -57,12 +59,10 @@ export default function SpellSearch() {
             url = url + '&school=' + spellSchool
         }
 
-        console.log(url)
-
-        if (baseurl === url) {
+        /* if (baseurl === url) {
             setSpells([])
             return
-        }
+        } */
 
         fetch(url)
             .then(response => response.json())
@@ -107,6 +107,7 @@ export default function SpellSearch() {
                     </select>
                 </div>
             </div>
+            <div>{spells?.length + ' spells found'}</div>
             <div className='list'>
                 {spells?.map(spell => {
                     return (

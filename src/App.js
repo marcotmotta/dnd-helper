@@ -20,7 +20,7 @@ function App() {
           <Sidebar />
           <div className="main-content">
             <Routes>
-              <Route path="/" element={<div>Home</div>}/>
+              <Route path="/" element={<SpellSearch />}/>
               <Route path="/school/:school_name" element={<School />}/>
               <Route path="/spell/search" element={<SpellSearch />}/>
               <Route path="/spell/:spell_name" element={<Spell />}/>
