@@ -12,9 +12,12 @@ export default function Sidebar() {
     <div className='sidebar'>
       <Link to="/"><h1>DND HELPER</h1></Link>
       <br />
-      <div className="search">
-        <Link to="/spell/search" className="link"><h3>Search</h3><Search /></Link>
-      </div>
+      <Link to="/spell/search">
+        <div className="search">
+          <h3>Search</h3>
+          <Search />
+        </div>
+      </Link>
       <br />
       <h3>Spell Schools</h3>
       <Link to="/school/abjuration"><p>Abjuration</p></Link>

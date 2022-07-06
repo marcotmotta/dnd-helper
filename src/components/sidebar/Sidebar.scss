@@ -11,16 +11,14 @@
     }
 
     .search {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         border: 1px solid lightgray;
         border-radius: 5px;
         padding: 10px; 
         color: lightgray;
         cursor: pointer;
 
-        .link {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
     }
 }
