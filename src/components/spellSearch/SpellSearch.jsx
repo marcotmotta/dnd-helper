@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { Link } from "react-router-dom";
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 //styles
 import "./SpellSearch.scss"
@@ -8,18 +9,16 @@ import "./SpellSearch.scss"
 export default function SpellSearch() {
 
     const [spells, setSpells] = useState([])
+    const [showingSpells, setShowingSpells] = useState([])
+    const [hasMoreSpells, setHasMoreSpells] = useState(true)
 
     const [spellName, setSpellName] = useState(null)
     const [spellLevel, setSpellLevel] = useState(null)
     const [spellSchool, setSpellSchool] = useState(null)
 
-    const handleChangeName = (event) => {
-        /* if (event.target.value.length < 3) {
-            setSpellName(null)
-        } else {
-            setSpellName(event.target.value)
-        } */
+    const MAX_SPELLS_PER_SCROLL = 10
 
+    const handleChangeName = (event) => {
         setSpellName(event.target.value)
     }
 
@@ -43,6 +42,11 @@ export default function SpellSearch() {
         getSpells()
     }, [spellName, spellLevel, spellSchool])
 
+    useEffect(() => {
+        setHasMoreSpells(spells.length > MAX_SPELLS_PER_SCROLL ? true : false)
+        setShowingSpells(spells.slice(0, MAX_SPELLS_PER_SCROLL))
+    }, [spells])
+
     const getSpells = () => {
         let baseurl = 'https://www.dnd5eapi.co/api/spells/?'
         let url = baseurl
@@ -59,14 +63,19 @@ export default function SpellSearch() {
             url = url + '&school=' + spellSchool
         }
 
-        /* if (baseurl === url) {
-            setSpells([])
-            return
-        } */
-
         fetch(url)
             .then(response => response.json())
             .then(response => setSpells(response.results))
+    }
+
+    const getMoreSpells = () => {
+        if (showingSpells.length >= spells.length) {
+            setHasMoreSpells(false)
+        } else {
+            setHasMoreSpells(true)
+        }
+
+        setShowingSpells([...showingSpells, ...spells.slice(showingSpells.length, showingSpells.length + MAX_SPELLS_PER_SCROLL)])
     }
 
     return (
@@ -108,13 +117,25 @@ export default function SpellSearch() {
                 </div>
             </div>
             <div>{spells?.length + ' spells found'}</div>
-            <div className='list'>
-                {spells?.map(spell => {
-                    return (
-                        <Link to={`/spell/${spell.index}`} className="list-item" key={spell.index}><p>{spell.name}</p></Link>
-                    )
-                })}
-            </div>
+            <InfiniteScroll
+                dataLength={showingSpells.length}
+                next={getMoreSpells}
+                hasMore={hasMoreSpells}
+                loader={<h4>Loading...</h4>}
+                endMessage={
+                    <p style={{ textAlign: "center" }}>
+                      <b>Yay! You have seen it all</b>
+                    </p>
+                }
+            >
+                <div className='list'>
+                    {showingSpells?.map(spell => {
+                        return (
+                            <Link to={`/spell/${spell.index}`} className="list-item" key={spell.index}><p>{spell.name}</p></Link>
+                        )
+                    })}
+                </div>
+            </InfiniteScroll>
         </div>
     )
 }
