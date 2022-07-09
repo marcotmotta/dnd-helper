@@ -138,7 +138,7 @@ export default function SpellSearch() {
                     </select>
                 </div>
             </div>
-            <div>{spells?.length + ' spells found'}</div>
+            <div className='spell-total'>{spells?.length + ' spells found'}</div>
             <InfiniteScroll
                 dataLength={showingSpells.length}
                 next={getMoreSpells}
