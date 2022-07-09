@@ -154,11 +154,14 @@ export default function SpellSearch() {
                     {showingSpells?.map(spell => {
                         return (
                             <Link to={`/spell/${spell.index}`} className="list-item" key={spell.index}>
-                                <div className='school-icon-container'>
-                                    <SchoolIcon school_name={spell.school.name}/>
+                                <div className='school-container'>
+                                    <div className='school-icon-container'>
+                                        <SchoolIcon school_name={spell.school.name}/>
+                                    </div>
+                                    <p><b>{spell.school.name.toUpperCase()}</b></p>
                                 </div>
                                 <div className='spell-info'>
-                                    <p>{spell.name}</p>
+                                    <h3><b>{spell.name}</b></h3>
                                     <p>Level {spell.level}</p>
                                     <p>{spell.classes.map(c => c.name).join(', ')}</p>
                                 </div>
