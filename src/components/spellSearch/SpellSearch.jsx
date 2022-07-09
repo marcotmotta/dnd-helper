@@ -5,6 +5,9 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 import SchoolIcon from '../schoolIcons/SchoolIcon';
 
+import { CircularProgress } from '@mui/material';
+import { ThumbUpOffAlt } from '@mui/icons-material';
+
 //styles
 import "./SpellSearch.scss"
 
@@ -105,7 +108,7 @@ export default function SpellSearch() {
             <div className='filters'>
                 <div className='filter-container'>
                     <span>Name</span>
-                    <input className="filter name-input" type="text" onChange={handleChangeName} />
+                    <input className="filter name-input" type="text" placeholder="Spell Name" onChange={handleChangeName} />
                 </div>
                 <div className='filter-container'>
                     <span>Level</span>
@@ -143,11 +146,9 @@ export default function SpellSearch() {
                 dataLength={showingSpells.length}
                 next={getMoreSpells}
                 hasMore={hasMoreSpells}
-                loader={<h4>Loading...</h4>}
+                loader={<div className='list-loading'><CircularProgress/></div>}
                 endMessage={
-                    <p style={{ textAlign: "center" }}>
-                      <b>Yay! You have seen it all</b>
-                    </p>
+                    <div className='list-end'><ThumbUpOffAlt fontSize='large'/></div>
                 }
             >
                 <div className='list'>
