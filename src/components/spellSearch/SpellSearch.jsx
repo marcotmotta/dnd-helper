@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import InfiniteScroll from 'react-infinite-scroll-component';
 
+import SchoolIcon from '../schoolIcons/SchoolIcon';
+
 //styles
 import "./SpellSearch.scss"
 
@@ -44,7 +46,7 @@ export default function SpellSearch() {
 
     useEffect(() => {
         setHasMoreSpells(spells.length > MAX_SPELLS_PER_SCROLL ? true : false)
-        getMoreSpells()
+        getMoreSpells(true)
     }, [spells])
 
     const getSpells = () => {
@@ -68,17 +70,22 @@ export default function SpellSearch() {
             .then(response => setSpells(response.results))
     }
 
-    const getMoreSpells = () => {
+    const getMoreSpells = (clearShowingSpells = false) => {
         if (showingSpells.length >= spells.length) {
             setHasMoreSpells(false)
         } else {
             setHasMoreSpells(true)
         }
 
+        let currentSpells = []
+        if (!clearShowingSpells) {
+            currentSpells = showingSpells
+        }
+
         let showingSpellsInfo = []
 
         spells
-            .slice(showingSpells.length, showingSpells.length + MAX_SPELLS_PER_SCROLL)
+            .slice(currentSpells.length, currentSpells.length + MAX_SPELLS_PER_SCROLL)
             .forEach((spell, i) => {
                 showingSpellsInfo[i] = fetch(`https://www.dnd5eapi.co/api/spells/${spell.index}`)
             })
@@ -88,8 +95,8 @@ export default function SpellSearch() {
             .then( responses => {
                 return Promise.all(responses.map(response => response.json()))
             })
-            .then(responses => {
-                setShowingSpells([...showingSpells, ...responses])
+            .then(newSpells => {
+                setShowingSpells([...currentSpells, ...newSpells])
             })
     }
 
@@ -147,9 +154,14 @@ export default function SpellSearch() {
                     {showingSpells?.map(spell => {
                         return (
                             <Link to={`/spell/${spell.index}`} className="list-item" key={spell.index}>
-                                <p>{spell.name}</p>
-                                <p>Level {spell.level} - {spell.school.name}</p>
-                                <p>{spell.classes.map(c => c.name).join(', ')}</p>
+                                <div className='school-icon-container'>
+                                    <SchoolIcon school_name={spell.school.name}/>
+                                </div>
+                                <div className='spell-info'>
+                                    <p>{spell.name}</p>
+                                    <p>Level {spell.level}</p>
+                                    <p>{spell.classes.map(c => c.name).join(', ')}</p>
+                                </div>
                             </Link>
                         )
                     })}

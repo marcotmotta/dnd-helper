@@ -44,7 +44,8 @@
 
         .list-item {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 20px;
             border-bottom: 2px solid var(--dark-gray);
             padding: 20px;
             color: inherit;
@@ -52,6 +53,26 @@
 
             &:hover {
                 background-color: #eeeeee;
+            }
+
+            .school-icon-container {
+                border: 2px solid var(--dark-gray);
+                border-radius: 5px;
+                padding: 3px;
+
+                .school-icon {
+                    height: 40px;
+
+                    svg {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+            }
+
+            .spell-info {
+                display: flex;
+                flex-direction: column;
             }
         }
     }
