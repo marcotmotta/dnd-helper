@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dnd-helper/static/css/main.1e18ec9e.css",
-    "main.js": "/dnd-helper/static/js/main.eaa824cf.js",
+    "main.css": "/dnd-helper/static/css/main.20513852.css",
+    "main.js": "/dnd-helper/static/js/main.bf2e6229.js",
     "static/media/divination.svg": "/dnd-helper/static/media/divination.86621133a0ff786755e1b652e6087fc1.svg",
     "static/media/enchantment.svg": "/dnd-helper/static/media/enchantment.c3c79fb498429abe4f038ec0060151d0.svg",
     "static/media/illusion.svg": "/dnd-helper/static/media/illusion.c786c38b16caa6b3645e7be63dece8c8.svg",
@@ -11,11 +11,11 @@
     "static/media/transmutation.svg": "/dnd-helper/static/media/transmutation.0854464fde59021502b1b6a1cae20f19.svg",
     "index.html": "/dnd-helper/index.html",
     "static/media/abjuration.svg": "/dnd-helper/static/media/abjuration.acf18bfc7b62851f1ec0a406215b4e57.svg",
-    "main.1e18ec9e.css.map": "/dnd-helper/static/css/main.1e18ec9e.css.map",
-    "main.eaa824cf.js.map": "/dnd-helper/static/js/main.eaa824cf.js.map"
+    "main.20513852.css.map": "/dnd-helper/static/css/main.20513852.css.map",
+    "main.bf2e6229.js.map": "/dnd-helper/static/js/main.bf2e6229.js.map"
   },
   "entrypoints": [
-    "static/css/main.1e18ec9e.css",
-    "static/js/main.eaa824cf.js"
+    "static/css/main.20513852.css",
+    "static/js/main.bf2e6229.js"
   ]
 }
