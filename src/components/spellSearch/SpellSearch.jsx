@@ -44,7 +44,7 @@ export default function SpellSearch() {
 
     useEffect(() => {
         setHasMoreSpells(spells.length > MAX_SPELLS_PER_SCROLL ? true : false)
-        setShowingSpells(spells.slice(0, MAX_SPELLS_PER_SCROLL))
+        getMoreSpells()
     }, [spells])
 
     const getSpells = () => {
@@ -75,7 +75,22 @@ export default function SpellSearch() {
             setHasMoreSpells(true)
         }
 
-        setShowingSpells([...showingSpells, ...spells.slice(showingSpells.length, showingSpells.length + MAX_SPELLS_PER_SCROLL)])
+        let showingSpellsInfo = []
+
+        spells
+            .slice(showingSpells.length, showingSpells.length + MAX_SPELLS_PER_SCROLL)
+            .forEach((spell, i) => {
+                showingSpellsInfo[i] = fetch(`https://www.dnd5eapi.co/api/spells/${spell.index}`)
+            })
+
+        //this is fcked up man
+        Promise.all(showingSpellsInfo)
+            .then( responses => {
+                return Promise.all(responses.map(response => response.json()))
+            })
+            .then(responses => {
+                setShowingSpells([...showingSpells, ...responses])
+            })
     }
 
     return (
@@ -131,7 +146,9 @@ export default function SpellSearch() {
                 <div className='list'>
                     {showingSpells?.map(spell => {
                         return (
-                            <Link to={`/spell/${spell.index}`} className="list-item" key={spell.index}><p>{spell.name}</p></Link>
+                            <Link to={`/spell/${spell.index}`} className="list-item" key={spell.index}>
+                                <p>{spell.name}</p>
+                            </Link>
                         )
                     })}
                 </div>
