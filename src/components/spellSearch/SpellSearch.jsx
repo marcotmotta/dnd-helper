@@ -148,6 +148,8 @@ export default function SpellSearch() {
                         return (
                             <Link to={`/spell/${spell.index}`} className="list-item" key={spell.index}>
                                 <p>{spell.name}</p>
+                                <p>Level {spell.level} - {spell.school.name}</p>
+                                <p>{spell.classes.map(c => c.name).join(', ')}</p>
                             </Link>
                         )
                     })}

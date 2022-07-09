@@ -43,6 +43,8 @@
         flex-wrap: wrap;
 
         .list-item {
+            display: flex;
+            flex-direction: column;
             border-bottom: 2px solid var(--dark-gray);
             padding: 20px;
             color: inherit;
