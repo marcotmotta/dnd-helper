@@ -156,7 +156,7 @@ export default function SpellSearch() {
                         return (
                             <Link to={`/spell/${spell.index}`} className="list-item" key={spell.index}>
                                 <div className='school-container'>
-                                    <div className='school-icon-container'>
+                                    <div className={'school-icon-container ' + spell.school.name.toLowerCase()}>
                                         <SchoolIcon school_name={spell.school.name}/>
                                     </div>
                                     <p><b>{spell.school.name.toUpperCase()}</b></p>

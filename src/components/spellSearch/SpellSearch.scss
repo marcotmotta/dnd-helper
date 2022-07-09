@@ -80,6 +80,38 @@
                     border-radius: 5px;
                     padding: 3px;
                     width: 50px;
+
+                    &.abjuration {
+                        background-color: #f2f2f2;
+                    }
+
+                    &.conjuration {
+                        background-color: #bfe8ff;
+                    }
+
+                    &.divination {
+                        background-color: #fffcbf;
+                    }
+
+                    &.enchantment {
+                        background-color: #cdffbf;
+                    }
+
+                    &.evocation {
+                        background-color: #ffbfbf;
+                    }
+
+                    &.illusion {
+                        background-color: #ebbfff;
+                    }
+
+                    &.necromancy {
+                        background-color: #bababa;
+                    }
+
+                    &.transmutation {
+                        background-color: #ffe5bf;
+                    }
     
                     .school-icon {
                         height: 40px;
