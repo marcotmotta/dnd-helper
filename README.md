@@ -1,4 +1,6 @@
-# DND HELPER
+# D&D HELPER
+
+React project using the D&D 5e API (https://www.dnd5eapi.co). A place where you can search for in game content.
 
 ## Page
 
