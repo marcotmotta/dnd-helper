@@ -159,7 +159,7 @@ export default function SpellSearch() {
                                     <div className={'school-icon-container ' + spell.school.name.toLowerCase()}>
                                         <SchoolIcon school_name={spell.school.name}/>
                                     </div>
-                                    <p><b>{spell.school.name.toUpperCase()}</b></p>
+                                    <p className='school-title'><b>{spell.school.name.toUpperCase()}</b></p>
                                 </div>
                                 <div className='spell-info'>
                                     <h3><b>{spell.name}</b></h3>

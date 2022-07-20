@@ -5,17 +5,15 @@ import { Link } from 'react-router-dom';
 import { Search } from '@mui/icons-material';
 
 //styles
-import './Sidebar.scss';
+import './Topbar.scss';
 
-export default function Sidebar() {
+export default function Topbar() {
   return (
-    <div className='sidebar desktop-only'>
-      <div className='sidebar-content'>
+    <div className='topbar mobile-only'>
+      <div className='topbar-content'>
         <Link to="/"><h1>DND HELPER</h1></Link>
-        <br />
         <Link to="/spell/search">
           <div className="search">
-            <h3>Search</h3>
             <Search />
           </div>
         </Link>
