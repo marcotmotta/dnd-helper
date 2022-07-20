@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 
 import Sidebar from './components/sidebar/Sidebar';
+import Topbar from './components/topbar/Topbar';
 import Spell from './components/spell/Spell';
 import School from './components/school/School';
 import SpellSearch from './components/spellSearch/SpellSearch';
@@ -18,6 +19,7 @@ function App() {
     <div className="App">
         <Router basename={process.env.PUBLIC_URL}>
           <Sidebar />
+          <Topbar />
           <div className="main-content">
             <Routes>
               <Route path="/" element={<SpellSearch />}/>
