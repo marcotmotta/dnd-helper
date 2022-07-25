@@ -5,12 +5,29 @@
     height: 100%;
     padding: 20px;
 
+    .filter-button {
+        border: 2px solid var(--dark-gray);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 120px;
+        font-weight: bold;
+        padding: 10px 15px;
+        margin: auto;
+
+        &.active {
+            background-color: #eee;
+        }
+    }
+
     .filters {
         display: flex;
         justify-content: center;
         gap: 30px;
 
         @media(max-width: 767px) {
+            display: none;
             flex-direction: column;
             gap: 10px;
         }
