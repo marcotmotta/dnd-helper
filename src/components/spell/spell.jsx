@@ -44,7 +44,7 @@ export default function Spell() {
     return (
         <div className="spell">
             <div className='heading'>
-                <div className='school'>
+                <div className={'school ' + spell.school.name.toLowerCase()}>
                     <SchoolIcon school_name={spell.school.name}/>
                     <span>{spell.school.name}</span>
                 </div>

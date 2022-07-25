@@ -6,7 +6,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import SchoolIcon from '../schoolIcons/SchoolIcon';
 
 import { CircularProgress } from '@mui/material';
-import { ThumbUpOffAlt } from '@mui/icons-material';
+import { ThumbUpOffAlt, FilterList } from '@mui/icons-material';
 
 //styles
 import "./SpellSearch.scss"
@@ -103,9 +103,20 @@ export default function SpellSearch() {
             })
     }
 
+    const handleFiltersDisplay = (event) => {
+        let filtersElement = document.getElementById('filters')
+        let isActive = event.target.classList.contains('active')
+        filtersElement.style.display = isActive ? 'none' : 'flex'
+        isActive ? event.target.classList.remove('active') : event.target.classList.add('active')
+    }
+
     return (
         <div className='spell-search'>
-            <div className='filters'>
+            <div className='filter-button mobile-only' onClick={handleFiltersDisplay}>
+                FILTER
+                <FilterList />
+            </div>
+            <div className='filters' id="filters">
                 <div className='filter-container'>
                     <span>Name</span>
                     <input className="filter name-input" type="text" placeholder="Spell Name" onChange={handleChangeName} />
